@@ -12,15 +12,12 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-
-
 .container{
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
     justify-content: center;
     padding: 10px;
 }
-
 
 .header{
     position: relative;
@@ -41,16 +38,16 @@ body{
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
 }
-
-
+/*
 .menu .navbar ul li {
     position: relative;
     float: left;
-
 }
 
 .menu .navbar ul li a {
@@ -62,24 +59,14 @@ body{
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.menu .navbar ul li a:hover{
+    transform: scale(1.1);
+}*/
+
 .arg_icono{
     width: 40px;
     height: auto;
     margin-right: 25px;
-}
-
-.menu .navbar ul li a:hover{
-    color: #3c7aad;
-    transform: scale(1.1);
-}
-
-#menu{
-    display: none;
-}
-
-.menu-icono {
-    width: 25px;
-    height: auto;
 }
 
 .header-content{
@@ -96,17 +83,16 @@ body{
 
 .Welcome{
     font-size: 14px;
-    color: #F9FAFC;
     font-weight: 400;
+    color: #F9FAFC;
     padding: 0 250px;
     margin-bottom: 25px;
 }
-
 .Career{
     font-size: 16px;
+    font-weight: 600;
     color: #F9FAFC;
     padding: 0 250px;
-    font-weight: 600;
     margin-bottom: 25px;
 }
 
@@ -143,10 +129,10 @@ body{
 }
 
 .aboutme-content {
-    max-width: 800px; /* Define un ancho máximo para que el texto no sea demasiado extenso */
-    margin: 0 auto; /* Centra la sección */
+    max-width: 800px; 
+    margin: 0 auto; 
     padding: 20px;
-    text-align: justify; /* Alinea el texto para que quede ordenado */
+    text-align: justify; 
 }
 
 .aboutme-content h2 {
@@ -157,12 +143,12 @@ body{
 
 .aboutme-content p {
     font-size: 14px;
-    line-height: 1.6; /* Aumenta la separación entre líneas */
-    color: #333; /* Color de texto */
+    line-height: 1.6; 
+    color: #333;
 }
 
 .skills-content {
-    max-width: 800px; /* Define un ancho máximo para que el texto no sea demasiado extenso */
+    max-width: 800px; 
     margin: 0 auto;
     padding: 20px;
     text-align: justify;
@@ -177,8 +163,8 @@ body{
 
 .skills-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    gap: 20px; /* Espacio entre elementos */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
     padding: 0;
     list-style: none;
     justify-content: center;
@@ -259,12 +245,6 @@ body{
     margin-top: 20px;
 }
 
-@media (max-width: 768px) { /* Para celulares y tablets */
-    .projects-list {
-        grid-template-columns: 1fr; /* Cambia a 1 sola columna */
-    }
-}
-
 .projects-list li {
     background-color: white; 
     border-radius: 10px;
@@ -317,7 +297,7 @@ body{
     -webkit-line-clamp: 5; /* Máximo 5 líneas visibles */
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    max-height: 6em; /* Ajusta la altura según tu diseño */
+    max-height: 6em; 
     transition: max-height 0.3s ease-in-out;
 }
 
@@ -408,21 +388,142 @@ body{
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: opacity 0.3s ease;
     overflow: hidden;
+    z-index: 9999;
 }
 
 #backToTop:hover {
     background-color: #135b83;
 }
 
-@media (max-width: 768px) { /* Para tablets y celulares */
-    .navbar ul {
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) { /* Para tablets y celulares */ 
+    .menu {
         flex-direction: column;
-        align-items: center;
+        text-align: center;
+    }
+    .arg_icono{
+        width: 30px;
+        height: auto;
+        margin-right: 10px;
+    }
+    .menu .navbar ul {
+        padding: 0;
+    }
+    .header-content h1 {
+        font-size: 2em; 
+        margin-bottom: 20px;
+    }
+    .Welcome, .Career {
+        padding: 0 20px; 
+    }
+    h1 {
+        font-size: 1.5em;
     }
     #backToTop {
         width: 40px;
         height: 40px;
     }
+    .footer {
+        padding: 30px 0; 
+    }
+    .projects-list {
+        grid-template-columns: 1fr; 
+    }
+
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger img {
+        width: 30px; 
+        height: auto;
+        position: fixed;
+        top: 20px;
+        left: 20px; 
+        z-index: 10; 
+        cursor: pointer;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: -250px; 
+        width: 250px;
+        height: 100%;
+        background-color: #24679e;
+        transition: left 0.3s ease;
+        z-index: 9; 
+        padding-top: 60px;
+    }
+    
+    .navbar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .navbar ul li {
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .navbar ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    
+    .navbar.open {
+        left: 0;
+    }
+    
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none; 
+        z-index: 8;  
+    }
+    .overlay.active {
+        display: block;
+    }
 }
 
+@media screen and (min-width: 769px) { /*Para pc*/
+    .hamburger{
+        display: none;
+    }
+    .navbar{
+        display: block;
+    }
+    .menu .navbar ul li {
+        position: relative;
+        float: left;
+    }   
+    .menu .navbar ul li a {
+        font-size: 18px;
+        padding: 20px;
+        color: #FFFDFC;
+        display: block;
+        font-weight: 600;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .menu .navbar ul li a:hover{
+        transform: scale(1.1);
+    }
+}
 
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
