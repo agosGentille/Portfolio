@@ -345,8 +345,8 @@ body{
 
 .up-icon{
     filter: invert(100%) brightness(100%);
-    width: 30px; 
-    height: auto;
+    width: 30px;
+    height: 30px;
     transition: transform 0.3s ease;
 }
 
@@ -369,6 +369,7 @@ body{
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: opacity 0.3s ease;
+    overflow: hidden;
 }
 
 #backToTop:hover {
