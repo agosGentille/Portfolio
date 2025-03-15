@@ -256,6 +256,12 @@ body{
     margin-top: 20px;
 }
 
+@media (max-width: 768px) { /* Para celulares y tablets */
+    .projects-list {
+        grid-template-columns: 1fr; /* Cambia a 1 sola columna */
+    }
+}
+
 .projects-list li {
     background-color: white; 
     border-radius: 10px;
