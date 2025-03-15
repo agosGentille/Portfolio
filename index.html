@@ -121,8 +121,7 @@
         <div id="projects" class="projects-content container">
             <h2> Mis Proyectos </h2> 
             <ul class="projects-list">
-                <a href="https://github.com/agosGentille/ElderLink">
-                <li>
+                <li onclick="window.location.href='https://github.com/agosGentille/ElderLink'">
                     <img src="imagenes/ElderLink_logo.png" alt="ElderLink">
                     <span>ElderLink</span>
                     <p>
@@ -133,9 +132,9 @@
                         de contenidos. Los mismos se pueden encontrar en cualquier formato (textos, videos, imágenes 
                         e incluso links a otras páginas o videos)
                     </p>
-                </li></a>
-                <a href="https://github.com/agosGentille/Consultorio-Medico">
-                <li>
+                    <span class="read-more" onclick="toggleReadMore(event, this)">Leer más...</span>
+                </li>
+                <li onclick="window.location.href='https://github.com/agosGentille/Consultorio-Medico'">
                     <img src="imagenes/ConsultorioMedico_logo.png" alt="Consultorio Médico">
                     <span>Gestión de Consultorio Médico</span>
                     <p>
@@ -146,11 +145,25 @@
                         Al final de cada uno, podrán registrar la asistencia del paciente junto a un pequeño detalle sobre la consulta.
 
                     </p>
+                    <span class="read-more" onclick="toggleReadMore(event, this)">Leer más...</span>
                 </li></a>
             </ul>
         </div>
 
     </section>
+    <script>
+        function toggleReadMore(event, element) {
+        event.stopPropagation(); // Evita que el click en "Leer más" redireccione a GitHub
+        let paragraph = element.previousElementSibling;
+        paragraph.classList.toggle("expanded");
+        
+        if (paragraph.classList.contains("expanded")) {
+            element.textContent = "Leer menos...";
+        } else {
+            element.textContent = "Leer más...";
+        }
+    }
+    </script>
 
     <section class="footer">
         <img>

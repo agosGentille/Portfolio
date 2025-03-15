@@ -13,8 +13,10 @@ body{
 }
 
 .container{
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    justify-content: center;
+    padding: 10px;
 }
 
 .header{
@@ -161,6 +163,8 @@ body{
     margin: 0 auto;
     padding: 20px;
     text-align: justify;
+    justify-content: left;
+        
 }
 
 .skills-content h2{
@@ -190,13 +194,7 @@ body{
     text-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
-/*
-.skills-list li:hover {
-    background-color: #16649c;
-    color: white;
-    transform: scale(1.05);
-}
-*/
+
 .skills-list img {
     width: 45px; 
     height: 45px;
@@ -250,7 +248,7 @@ body{
 
 .projects-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px; 
     padding: 0;
     list-style: none;
@@ -267,7 +265,12 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    min-height: 250px;
     transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: height 0.3s ease-in-out;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
@@ -295,10 +298,36 @@ body{
 .projects-list p {
     font-size: 15px;
     font-weight: 400;
-    max-width: 400px; 
+    max-width: 400px;
     margin: 0 auto; 
     padding: 20px;
     text-align: justify;
+    overflow: hidden;
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Máximo 5 líneas visibles */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    max-height: 6em; /* Ajusta la altura según tu diseño */
+    transition: max-height 0.3s ease-in-out;
+}
+
+.projects-list p.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    max-height: none;
+    padding: 10px;
+    overflow: visible;
+    position: relative;
+    width: 100%;
+}
+
+.read-more {
+    color: #16649c;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 5px;
 }
 
 .footer {
