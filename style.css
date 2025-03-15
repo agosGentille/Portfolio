@@ -12,12 +12,15 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+
+
 .container{
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
     justify-content: center;
     padding: 10px;
 }
+
 
 .header{
     position: relative;
@@ -256,6 +259,12 @@ body{
     margin-top: 20px;
 }
 
+@media (max-width: 768px) { /* Para celulares y tablets */
+    .projects-list {
+        grid-template-columns: 1fr; /* Cambia a 1 sola columna */
+    }
+}
+
 .projects-list li {
     background-color: white; 
     border-radius: 10px;
@@ -403,6 +412,17 @@ body{
 
 #backToTop:hover {
     background-color: #135b83;
+}
+
+@media (max-width: 768px) { /* Para tablets y celulares */
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    #backToTop {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 
