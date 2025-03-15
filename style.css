@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header{
+    position: relative;
+    background-image: linear-gradient(
+        rgba(37, 36, 36, 0.7),
+        rgba(37, 36, 36, 0.7)), 
+        url(imagenes/waves_presentation.jpeg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+
+}
+
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 20px;
+    color: #FFFDFC;
+    display: block;
+    font-weight: 600;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.arg_icono{
+    width: 40px;
+    height: auto;
+    margin-right: 25px;
+}
+
+.menu .navbar ul li a:hover{
+    color: #3c7aad;
+    transform: scale(1.1);
+}
+
+#menu{
+    display: none;
+}
+
+.menu-icono {
+    width: 25px;
+    height: auto;
+}
+
+.header-content{
+    text-align: center;
+}
+
+.header-content h1{
+    font-size: 50px;
+    line-height: 80px;
+    color: #F9FAFC;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.Welcome{
+    font-size: 14px;
+    color: #F9FAFC;
+    font-weight: 400;
+    padding: 0 250px;
+    margin-bottom: 25px;
+}
+
+.Career{
+    font-size: 16px;
+    color: #F9FAFC;
+    padding: 0 250px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.contact-content {
+    position: absolute;
+    bottom: 25px; 
+    right: 30px; 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 15px;
+    border-radius: 10px; 
+}
+
+.contact-content .icono {
+    width: 30px; 
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.contact-content .icono:hover {
+    transform: scale(1.1);
+}
+
+.icono {
+    width: 25px;  
+    height: auto;
+}
+
+.aboutme .projects .skills {
+    padding: 20px;
+    text-align: center;
+    background-color: #FFFDFC;
+}
+
+.aboutme-content {
+    max-width: 800px; /* Define un ancho máximo para que el texto no sea demasiado extenso */
+    margin: 0 auto; /* Centra la sección */
+    padding: 20px;
+    text-align: justify; /* Alinea el texto para que quede ordenado */
+}
+
+.aboutme-content h2 {
+    font-size: 20px;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+.aboutme-content p {
+    font-size: 14px;
+    line-height: 1.6; /* Aumenta la separación entre líneas */
+    color: #333; /* Color de texto */
+}
+
+.skills-content {
+    max-width: 800px; /* Define un ancho máximo para que el texto no sea demasiado extenso */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: justify;
+}
+
+.skills-content h2{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 20px; /* Espacio entre elementos */
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.skills-list li {
+    background-color: white; 
+    border: 2px solid #16649c; 
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+/*
+.skills-list li:hover {
+    background-color: #16649c;
+    color: white;
+    transform: scale(1.05);
+}
+*/
+.skills-list img {
+    width: 45px; 
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+.skills-list span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btnCv {
+    display: block;
+    margin: 25px auto 35px 0;
+    margin-bottom: 35px;
+    margin-right: 500px; 
+    background-color: white; 
+    color: #3c7aad;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: 2px solid #3c7aad; 
+    border-radius: 10px; 
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.btnCv:hover {
+    background-color: #3c7aad;
+    color: white;
+    transform: scale(1.05); 
+}
+
+.btnCv:active {
+    transform: scale(0.95);  
+}
+
+.projects-content {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.projects-content h2 {
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 20px; 
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.projects-list li {
+    background-color: white; 
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+.projects-list a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.projects-list li:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); 
+}
+
+.projects-list img {
+    width: 100px; 
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.projects-list span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.projects-list p {
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 400px; 
+    margin: 0 auto; 
+    padding: 20px;
+    text-align: justify;
+}
+
+.footer {
+    background-color: #d0dde8; 
+    padding: 50px 0; 
+    color: white; 
+    text-align: center; 
+}
+
+.footer h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center; 
+    gap: 20px;
+}
+
+.footer-link {
+    color: #FFF; 
+    text-decoration: none; 
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    transition: color 0.3s ease; 
+}
+
+.footer-link:hover {
+    color: #65a0d2; 
+}
+
+.icono {
+    width: 25px; 
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-link:hover .icono {
+    transform: scale(1.1); 
+}
+
