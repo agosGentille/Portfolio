@@ -8,7 +8,22 @@
     <link rel="icon" type="image/png" href="imagenes/arg_icono.png">
 </head>
 <body>
+    <button id="backToTop" onclick="scrollToTop()"> <img src="imagenes/up_icono.png" class="up-icon"> </button>
+    <script>
+        window.onscroll = function() {
+        let scrollButton = document.getElementById("backToTop");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollButton.style.display = "block";  // Muestra el botón cuando se haga scroll
+        } else {
+            scrollButton.style.display = "none";  // Oculta el botón cuando esté en la parte superior
+        }
+        };
 
+        // Función para volver al inicio de la página cuando se haga clic en el botón
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
     <header id="header" class="header">
         <div class="menu container">
             <nav class="navbar">
