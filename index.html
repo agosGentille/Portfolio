@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=1, user-scalable=no">
     <title>Portfolio-Gentille-Agostina</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="imagenes/arg_icono.png">
@@ -23,10 +23,20 @@
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        function toggleMenu() {
+            var navbar = document.querySelector('.navbar');
+            var overlay = document.querySelector('.overlay');
+            navbar.classList.toggle('open');  // Alterna la clase 'open' para mostrar/ocultar el menú
+            overlay.classList.toggle('active');  // Muestra el fondo oscuro
+        }
     </script>
     
     <header id="header" class="header">
         <div class="menu container">
+            <div class="hamburger" onclick="toggleMenu()">
+                <img src="imagenes/menu_icon.png" class="menu-icon">
+            </div>
             <nav class="navbar">
                 <ul>
                     <li> <a href="#header"> Inicio </a> </li>
@@ -36,7 +46,8 @@
                     <li> <a href="#footer"> Contacto </a> </li>
                 </ul>
             </nav>
-            <img src="imagenes/arg_icono.png" class="arg_icono">
+            <div class="overlay" onclick="toggleMenu()"></div>
+            <img src="imagenes/arg_icono.png" class="arg_icono img-responsive">
         </div>
 
         <div class="header-content container">
