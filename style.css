@@ -11,6 +11,12 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+/*Cualquier comportamiento que utilice que redireccione
+a una sección de la misma página, #skills x ejemplo,
+será con un scroll smooth*/
+html {
+    scroll-behavior: smooth;
+}
 
 .container{
     display: flex;
@@ -44,24 +50,6 @@ body{
     justify-content: space-between;
     padding: 20px;
 }
-/*
-.menu .navbar ul li {
-    position: relative;
-    float: left;
-}
-
-.menu .navbar ul li a {
-    font-size: 18px;
-    padding: 20px;
-    color: #FFFDFC;
-    display: block;
-    font-weight: 600;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.menu .navbar ul li a:hover{
-    transform: scale(1.1);
-}*/
 
 .arg_icono{
     width: 40px;
@@ -128,7 +116,7 @@ body{
     background-color: #FFFDFC;
 }
 
-.aboutme-content {
+.aboutme-content{
     max-width: 800px; 
     margin: 0 auto; 
     padding: 20px;
@@ -147,17 +135,17 @@ body{
     color: #333;
 }
 
-.skills-content {
+.skills-content{
     max-width: 800px; 
-    margin: 0 auto;
+    margin: 0 auto; 
     padding: 20px;
-    text-align: justify;
-    justify-content: left;
-        
+    text-align: justify; 
 }
 
-.skills-content h2{
+.skills-content h2 {
+    padding: 20px;
     font-size: 18px;
+    margin-top: 25px;
     font-weight: 500;
 }
 
@@ -175,7 +163,8 @@ body{
     background-color: white; 
     border: 2px solid #16649c; 
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 120px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -195,11 +184,9 @@ body{
     font-weight: 600;
 }
 
-.btnCv {
+.btnCv button{
     display: block;
     margin: 25px auto 35px 0;
-    margin-bottom: 35px;
-    margin-right: 500px; 
     background-color: white; 
     color: #3c7aad;
     font-size: 16px;
@@ -208,18 +195,17 @@ body{
     border: 2px solid #3c7aad; 
     border-radius: 10px; 
     cursor: pointer;
-    text-align: center;
+    position: relative;
     transition: background-color 0.3s ease, transform 0.3s ease;
-
 }
 
-.btnCv:hover {
+.btnCv button:hover {
     background-color: #3c7aad;
     color: white;
     transform: scale(1.05); 
 }
 
-.btnCv:active {
+.btnCv button:active {
     transform: scale(0.95);  
 }
 
@@ -257,6 +243,7 @@ body{
     position: relative;
     overflow: hidden;
     height: auto;
+    cursor: pointer;
     min-height: 250px;
     transition: transform 0.3s ease, background-color 0.3s ease;
     transition: height 0.3s ease-in-out;
@@ -369,7 +356,7 @@ body{
 }
 
 #backToTop {
-    display: none; /* Oculto por defecto */
+    display: none; 
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -381,14 +368,13 @@ body{
     height: 50px;
     padding: 0; 
     font-size: 18px; 
-    display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /*Cambia la forma del cursor cuando pasa x encima*/
     transition: opacity 0.3s ease;
     overflow: hidden;
     z-index: 9999;
+    -webkit-tap-highlight-color: transparent; /*La capa transparente al seleccionar el botón desaparece*/
 }
 
 #backToTop:hover {
@@ -401,7 +387,10 @@ body{
     justify-content: space-between;
     height: 20px;
     width: 30px;
-    cursor: pointer;
+}
+
+#sticky{
+    display: none;
 }
 
 @media screen and (max-width: 768px) { /* Para tablets y celulares */ 
@@ -409,10 +398,9 @@ body{
         flex-direction: column;
         text-align: center;
     }
-    .arg_icono{
-        width: 30px;
-        height: auto;
-        margin-right: 10px;
+    .skills-list {
+        grid-template-columns: repeat(1, 1fr); 
+        padding: 10px 50px;
     }
     .menu .navbar ul {
         padding: 0;
@@ -450,6 +438,7 @@ body{
         left: 20px; 
         z-index: 10; 
         cursor: pointer;
+        filter: invert(100%);
     }
     .navbar {
         position: fixed;
@@ -492,10 +481,20 @@ body{
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         display: none; 
-        z-index: 8;  
+        z-index: 8;  /*Establece la "capa" del elemento*/
     }
     .overlay.active {
         display: block;
+    }
+    .sticky{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 64px;
+        display: block;
+        background-color: #24679e;
+        z-index: 8;
+        transition: opacity 0.3s ease-in-out;
     }
 }
 

@@ -8,30 +8,38 @@
     <link rel="icon" type="image/png" href="imagenes/arg_icono.png">
 </head>
 <body>
-    <button id="backToTop" onclick="scrollToTop()"> <img src="imagenes/up_icono.png" class="up-icon"> </button>
     <script>
         window.onscroll = function() {
         let scrollButton = document.getElementById("backToTop");
+        let sticky = document.getElementById("sticky");
         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            scrollButton.style.display = "block";  // Muestra el botón cuando se haga scroll
+            scrollButton.style.display = "block";
+            sticky.style.display = "block";
         } else {
-            scrollButton.style.display = "none";  // Oculta el botón cuando esté en la parte superior
+            scrollButton.style.display = "none";  // Oculta el botón cuando esté en la parte superior  
+            sticky.style.display = "none";
+        }
+        if(document.body.scrollTop > window.innerHeight * 0.6 || document.documentElement.scrollTop > window.innerHeight * 0.6){
+            sticky.style.opacity = "1";
+        }else{
+            sticky.style.opacity = "0";
         }
         };
 
         // Función para volver al inicio de la página cuando se haga clic en el botón
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        };
 
         function toggleMenu() {
             var navbar = document.querySelector('.navbar');
             var overlay = document.querySelector('.overlay');
             navbar.classList.toggle('open');  // Alterna la clase 'open' para mostrar/ocultar el menú
             overlay.classList.toggle('active');  // Muestra el fondo oscuro
-        }
+        };
     </script>
-    
+    <button id="backToTop" onclick="scrollToTop()"> <img src="imagenes/up_icono.png" class="up-icon"> </button>
+    <div class="sticky" id="sticky"></div>
     <header id="header" class="header">
         <div class="menu container">
             <div class="hamburger" onclick="toggleMenu()">
@@ -74,61 +82,61 @@
             }
             </script>
     </header>
-
+    
     <section class="aboutme">
         <div id="aboutme" class="aboutme-content container">
             <h2> Sobre mi </h2> 
-
             <p>
                 ¡Hola! Soy Agostina Gentille, Técnica en Programación y Sistemas Informáticos. 
                 Me apasiona el desarrollo de software y la tecnología. 
                 Me encanta aprender nuevas herramientas y enfrentar desafíos tecnológicos. 
                 Siempre estoy en busca de oportunidades para seguir creciendo y aportar soluciones innovadoras.
             </p>
-            
+        </div>   
+    </section>
+
+    <section class="skills">
+        <div id="skills" class="skills-content container">
+            <h2> Skills </h2> 
+            <ul class="skills-list">
+                <li>
+                    <img src="imagenes/html_icono.png" alt="HTML">
+                    <span>HTML</span>
+                </li>
+                <li>
+                    <img src="imagenes/css_icono.png" alt="CSS">
+                    <span>CSS</span>
+                </li>
+                <li>
+                    <img src="imagenes/net_icono.png" alt=".NET">
+                    <span>C# con .NET</span>
+                </li>
+                <li>
+                    <img src="imagenes/java_icono.png" alt="Java">
+                    <span>Java</span>
+                </li>
+                <li>
+                    <img src="imagenes/c++_icono.png" alt="C++">
+                    <span>C++</span>
+                </li>
+                <li>
+                    <img src="imagenes/sql_icono.png" alt="SQL">
+                    <span>SQL</span>
+                </li>
+                <li>
+                    <img src="imagenes/github_icono_b.png" alt="GitHub">
+                    <span>GitHub</span>
+                </li>
+            </ul>  
+            <a href="cv.pdf" download="CV_Gentille_Agostina.pdf" class="btnCv">
+                <button>Descargar CV</button>
+            </a>    
         </div>
-        <section class="skills">
-            <div id="skills" class="skills-content container">
-                <h2> Skills </h2> 
-                <ul class="skills-list">
-                    <li>
-                        <img src="imagenes/html_icono.png" alt="HTML">
-                        <span>HTML</span>
-                    </li>
-                    <li>
-                        <img src="imagenes/css_icono.png" alt="CSS">
-                        <span>CSS</span>
-                    </li>
-                    <li>
-                        <img src="imagenes/net_icono.png" alt=".NET">
-                        <span>C# con .NET</span>
-                    </li>
-                    <li>
-                        <img src="imagenes/java_icono.png" alt="Java">
-                        <span>Java</span>
-                    </li>
-                    <li>
-                        <img src="imagenes/c++_icono.png" alt="C++">
-                        <span>C++</span>
-                    </li>
-                    <li>
-                        <img src="imagenes/sql_icono.png" alt="SQL">
-                        <span>SQL</span>
-                    </li>
-                </ul>  
-                <a href="cv.pdf" download="CV_Gentille_Agostina.pdf">
-                    <button class="btnCv">Descargar CV</button>
-                </a>    
-            </div>
-        </section>
-            
-        
     </section>
 
 
 
     <section class="projects">
-        <img>
         <div id="projects" class="projects-content container">
             <h2> Mis Proyectos </h2> 
             <ul class="projects-list">
@@ -157,7 +165,7 @@
 
                     </p>
                     <span class="read-more" onclick="toggleReadMore(event, this)">Leer más...</span>
-                </li></a>
+                </li>
             </ul>
         </div>
 
