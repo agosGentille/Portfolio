@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=1, user-scalable=no">
@@ -8,36 +8,7 @@
     <link rel="icon" type="image/png" href="imagenes/arg_icono.png">
 </head>
 <body>
-    <script>
-        window.onscroll = function() {
-        let scrollButton = document.getElementById("backToTop");
-        let sticky = document.getElementById("sticky");
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            scrollButton.style.display = "block";
-            sticky.style.display = "block";
-        } else {
-            scrollButton.style.display = "none";  // Oculta el botón cuando esté en la parte superior  
-            sticky.style.display = "none";
-        }
-        if(document.body.scrollTop > window.innerHeight * 0.6 || document.documentElement.scrollTop > window.innerHeight * 0.6){
-            sticky.style.opacity = "1";
-        }else{
-            sticky.style.opacity = "0";
-        }
-        };
-
-        // Función para volver al inicio de la página cuando se haga clic en el botón
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-
-        function toggleMenu() {
-            var navbar = document.querySelector('.navbar');
-            var overlay = document.querySelector('.overlay');
-            navbar.classList.toggle('open');  // Alterna la clase 'open' para mostrar/ocultar el menú
-            overlay.classList.toggle('active');  // Muestra el fondo oscuro
-        };
-    </script>
+    <script src="script.js"></script>
     <button id="backToTop" onclick="scrollToTop()"> <img src="imagenes/up_icono.png" class="up-icon"> </button>
     <div class="sticky" id="sticky"></div>
     <header id="header" class="header">
@@ -47,21 +18,25 @@
             </div>
             <nav class="navbar">
                 <ul>
-                    <li> <a href="#header"> Inicio </a> </li>
-                    <li> <a href="#aboutme"> Sobre mi </a> </li>
-                    <li> <a href="#skills"> Habilidades </a> </li>
-                    <li> <a href="#projects"> Proyectos </a> </li>
-                    <li> <a href="#footer"> Contacto </a> </li>
+                    <li> <a id="Nav_header" class="menu-item" href="#header" onclick="showSection('header')"> Inicio </a> </li>
+                    <li> <a id="Nav_aboutme" class="menu-item" href="#aboutme" onclick="showSection('aboutme')"> Sobre mi </a> </li>
+                    <li> <a id="Nav_skills" class="menu-item" href="#skills" onclick="showSection('skills')" > Habilidades </a> </li>
+                    <li> <a id="Nav_projects" class="menu-item" href="#projects" onclick="showSection('projects')"> Proyectos </a> </li>
+                    <li> <a id="Nav_footer" class="menu-item" href="#footer" onclick="showSection('footer')"> Contacto </a> </li>
                 </ul>
             </nav>
             <div class="overlay" onclick="toggleMenu()"></div>
-            <img src="imagenes/arg_icono.png" class="arg_icono img-responsive">
+            <select id="languageSwitcher">
+                <option class="option" value="es">Español</option>
+                <option class="option" value="en">English</option>
+            </select>
         </div>
-
+        
+        <div class="parallax-background" style="background-image: url('imagenes/waves_presentation.jpeg');"></div>
         <div class="header-content container">
-            <label class="Welcome"> Bienvenidos a mi Portfolio, soy </label>
+            <span id="Welcome" class="Welcome"> Bienvenidos a mi Portfolio, soy </span>
             <h1> Agostina Gentille </h1>
-            <label class="Career"> Técnica en Programación y Sistemas Informáticos </label>
+            <span id="Career" class="Career"> Técnica en Programación y Sistemas Informáticos </span>
             
         </div>
         
@@ -70,29 +45,21 @@
                 <a href="https://github.com/agosGentille"> <img src="imagenes/github_icono.png" alt="GitHub" class="icono"> </a>
                 <a href="#" onclick="copiarAlPortapapeles(event)" > <img src="imagenes/mail_icono.png" alt="Gmail" class="icono"> </a>
         </div>
-        <script>
-            function copiarAlPortapapeles(event) {
-                event.preventDefault(); 
-                const email = "gentilleagostina@gmail.com"; 
-                navigator.clipboard.writeText(email).then(() => {
-                    alert("Correo copiado al portapapeles: " + email);
-                }).catch(err => {
-                    console.error("Error al copiar: ", err);
-                });
-            }
-            </script>
     </header>
     
     <section class="aboutme">
         <div id="aboutme" class="aboutme-content container">
-            <h2> Sobre mi </h2> 
-            <p>
+            <h2 id="SubTitle_aboutme"> Sobre mi </h2> 
+            <p id="Description">
                 ¡Hola! Soy Agostina Gentille, Técnica en Programación y Sistemas Informáticos. 
                 Me apasiona el desarrollo de software y la tecnología. 
                 Me encanta aprender nuevas herramientas y enfrentar desafíos tecnológicos. 
                 Siempre estoy en busca de oportunidades para seguir creciendo y aportar soluciones innovadoras.
             </p>
-        </div>   
+        </div> 
+        <div class="avatar-container">
+            <img src="imagenes/avatar.jpg" class="avatar img-responsive">
+        </div>  
     </section>
 
     <section class="skills">
@@ -128,8 +95,11 @@
                     <span>GitHub</span>
                 </li>
             </ul>  
-            <a href="cv.pdf" download="CV_Gentille_Agostina.pdf" class="btnCv">
-                <button>Descargar CV</button>
+            <a href="cv_es.pdf" download="CV.Es_Gentille_Agostina.pdf" class="btnCv">
+                <button>Descargar CV en Español</button>
+            </a>
+            <a href="cv_en.pdf" download="CV.En_Gentille_Agostina.pdf" class="btnCv">
+                <button>Download CV in English</button>
             </a>    
         </div>
     </section>
@@ -138,12 +108,12 @@
 
     <section class="projects">
         <div id="projects" class="projects-content container">
-            <h2> Mis Proyectos </h2> 
+            <h2 id="SubTitle_projects"> Mis Proyectos </h2> 
             <ul class="projects-list">
                 <li onclick="window.location.href='https://github.com/agosGentille/ElderLink'">
                     <img src="imagenes/ElderLink_logo.png" alt="ElderLink">
                     <span>ElderLink</span>
-                    <p>
+                    <p id="Elderlink_description">
                         ElderLink es una plataforma de Alfabetización Digital para Adultos Mayores.
                         Mediante esta App Móvil se le permite a los usuarios acceder a la 
                         información y cursos a través de una interfaz accesible, mientras que los Docentes pueden
@@ -155,8 +125,8 @@
                 </li>
                 <li onclick="window.location.href='https://github.com/agosGentille/Consultorio-Medico'">
                     <img src="imagenes/ConsultorioMedico_logo.png" alt="Consultorio Médico">
-                    <span>Gestión de Consultorio Médico</span>
-                    <p>
+                    <span id="Consultorio_title" >Gestión de Consultorio Médico</span>
+                    <p id="Consultorio_description">
                         Esta es una Aplicación Web ideal para aquellos Consultorios Médicos que desean gestionar
                         turnos correctamente. Los Administradores podrán acceder a un CRUD de Médicos, Pacientes e incluso
                         Especialidades, además de generar una serie de Reportes. Por otro lado, los medicos cuentan con
@@ -170,24 +140,11 @@
         </div>
 
     </section>
-    <script>
-        function toggleReadMore(event, element) {
-        event.stopPropagation(); // Evita que el click en "Leer más" redireccione a GitHub
-        let paragraph = element.previousElementSibling;
-        paragraph.classList.toggle("expanded");
-        
-        if (paragraph.classList.contains("expanded")) {
-            element.textContent = "Leer menos...";
-        } else {
-            element.textContent = "Leer más...";
-        }
-    }
-    </script>
 
     <section class="footer">
         <img>
         <div id="footer" class="footer-content container">
-            <h2>Si tenés alguna propuesta o algún proyecto en mente, ¡hablame!</h2>
+            <h2 id="Footer_description">Si tenés alguna propuesta o algún proyecto en mente, ¡hablame!</h2>
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/agostina-gentille-847481291" class="footer-link">
                 <img src="imagenes/linkedin_icono.png" alt="LinkedIn" class="icono">

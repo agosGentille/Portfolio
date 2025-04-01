@@ -25,16 +25,31 @@ html {
     padding: 10px;
 }
 
-.header{
+.parallax-section {
     position: relative;
-    background-image: linear-gradient(
-        rgba(37, 36, 36, 0.7),
-        rgba(37, 36, 36, 0.7)), 
-        url(imagenes/waves_presentation.jpeg);
-    background-position: center bottom;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+.parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed; /* Creates the parallax effect */
+    filter: brightness(70%);
+    z-index: -1; /* Ensures the background stays behind the content */
+}
+
+
+.header{
+    position: relative;
     min-height: 70vh;
+    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -51,10 +66,38 @@ html {
     padding: 20px;
 }
 
-.arg_icono{
-    width: 40px;
-    height: auto;
-    margin-right: 25px;
+#languageSwitcher {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: 1px solid #2a78b7;  
+    background-color: transparent;  
+    color: white;  
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* Efecto de hover */
+#languageSwitcher:hover {
+    background-color: rgba(42, 120, 183, 0.1);  
+}
+
+/* Opciones al abrir el select (cuando se hace clic en el dropdown) */
+#languageSwitcher:focus {
+    background-color: rgba(42, 120, 183, 0.2);    
+    border-radius: 30px;
+}
+
+/* Opciones dentro del select cuando se abre */
+#languageSwitcher option {
+    background-color: transparent;
+    color: white;  
+}
+
+/* Estilo de las opciones al hacer hover */
+#languageSwitcher option:hover {
+    background-color: rgba(42, 120, 183, 0.2); 
 }
 
 .header-content{
@@ -69,15 +112,16 @@ html {
     margin-bottom: 25px;
 }
 
+
 .Welcome{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     color: #F9FAFC;
     padding: 0 250px;
     margin-bottom: 25px;
 }
 .Career{
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: #F9FAFC;
     padding: 0 250px;
@@ -110,17 +154,17 @@ html {
     height: auto;
 }
 
-.aboutme .projects .skills {
+.aboutme{
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    text-align: center;
-    background-color: #FFFDFC;
+    margin-top: 25px;
 }
-
-.aboutme-content{
-    max-width: 800px; 
-    margin: 0 auto; 
+.aboutme-content {
+    display: block;
+    align-items: center; /* Centra verticalmente */
     padding: 20px;
-    text-align: justify; 
 }
 
 .aboutme-content h2 {
@@ -130,9 +174,26 @@ html {
 }
 
 .aboutme-content p {
+    flex: 1; /* Permite que el texto ocupe el espacio disponible */
     font-size: 14px;
-    line-height: 1.6; 
+    line-height: 1.6;
+    margin-top: 10px;
     color: #333;
+}
+
+.avatar-container {
+    flex-shrink: 0; /* Evita que el contenedor del avatar se reduzca */
+    text-align: center;
+    margin-left: 20px;
+    padding: 20px;
+}
+
+.avatar {
+    margin: 0 auto;
+    width: 180px; /* Ajusta el tamaño del avatar */
+    height: auto;
+    border-radius: 100% 0% 0 100%; 
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
 }
 
 .skills-content{
@@ -473,6 +534,12 @@ html {
         left: 0;
     }
     
+    .navbar ul li.active {
+        background-color: #185485; 
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+        font-weight: bold; 
+    }
+
     .overlay {
         position: fixed;
         top: 0;
