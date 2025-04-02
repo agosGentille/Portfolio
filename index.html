@@ -47,23 +47,25 @@
         </div>
     </header>
     
-    <section class="aboutme">
-        <div id="aboutme" class="aboutme-content container">
-            <h2 id="SubTitle_aboutme"> Sobre mi </h2> 
-            <p id="Description">
-                ¡Hola! Soy Agostina Gentille, Técnica en Programación y Sistemas Informáticos. 
-                Me apasiona el desarrollo de software y la tecnología. 
-                Me encanta aprender nuevas herramientas y enfrentar desafíos tecnológicos. 
-                Siempre estoy en busca de oportunidades para seguir creciendo y aportar soluciones innovadoras.
-            </p>
-        </div> 
-        <div class="avatar-container">
-            <img src="imagenes/avatar.jpg" class="avatar img-responsive">
-        </div>  
+    <section id="aboutme" class="aboutme">
+        <div class="aboutme-container container">
+            <div class="aboutme-content container">
+                <h2 id="SubTitle_aboutme"> Sobre mi </h2> 
+                <p id="Description">
+                    ¡Hola! Soy Agostina Gentille, Técnica en Programación y Sistemas Informáticos. 
+                    Me apasiona el desarrollo de software y la tecnología. 
+                    Me encanta aprender nuevas herramientas y enfrentar desafíos tecnológicos. 
+                    Siempre estoy en busca de oportunidades para seguir creciendo y aportar soluciones innovadoras.
+                </p>
+            </div> 
+            <div class="avatar-container">
+                <img src="imagenes/avatar.jpg" class="avatar img-responsive">
+            </div>  
+        </div>
     </section>
 
-    <section class="skills">
-        <div id="skills" class="skills-content container">
+    <section id="skills" class="skills">
+        <div class="skills-content container">
             <h2> Skills </h2> 
             <ul class="skills-list">
                 <li>
@@ -73,6 +75,10 @@
                 <li>
                     <img src="imagenes/css_icono.png" alt="CSS">
                     <span>CSS</span>
+                </li>
+                <li>
+                    <img src="imagenes/javascript_icono.png" alt="JavaScript">
+                    <span>JavaScript</span>
                 </li>
                 <li>
                     <img src="imagenes/net_icono.png" alt=".NET">
@@ -94,20 +100,23 @@
                     <img src="imagenes/github_icono_b.png" alt="GitHub">
                     <span>GitHub</span>
                 </li>
-            </ul>  
-            <a href="cv_es.pdf" download="CV.Es_Gentille_Agostina.pdf" class="btnCv">
-                <button>Descargar CV en Español</button>
-            </a>
-            <a href="cv_en.pdf" download="CV.En_Gentille_Agostina.pdf" class="btnCv">
-                <button>Download CV in English</button>
-            </a>    
+            </ul>
+            <div class="DownloadCvs">
+                <a href="cv_es.pdf" download="CV.Es_Gentille_Agostina.pdf" class="btnCv">
+                    <button>Descargar CV en Español</button>
+                </a>
+                <a href="cv_en.pdf" download="CV.En_Gentille_Agostina.pdf" class="btnCv">
+                    <button>Download CV in English</button>
+                </a>
+            </div>  
+                
         </div>
     </section>
 
 
 
-    <section class="projects">
-        <div id="projects" class="projects-content container">
+    <section id="projects" class="projects">
+        <div class="projects-content container">
             <h2 id="SubTitle_projects"> Mis Proyectos </h2> 
             <ul class="projects-list">
                 <li onclick="window.location.href='https://github.com/agosGentille/ElderLink'">
@@ -136,14 +145,23 @@
                     </p>
                     <span class="read-more" onclick="toggleReadMore(event, this)">Leer más...</span>
                 </li>
+                <li onclick="window.location.href='https://github.com/agosGentille/Memoria_Verdad_Justicia'">
+                    <img src="imagenes/Memoria_logo" alt="24 de Marzo">
+                    <span id="Memoria_title" >Día Nacional de la Memoria, Verdad y Justicia</span>
+                    <p id="Memoria_description">
+                        Esta página web educativa fue creada para conmemorar el Día Nacional de la Memoria por la 
+                        Verdad y la Justicia en Argentina (24 de marzo), con el propósito de informar sobre la 
+                        última dictadura cívico-militar (1976-1983) y preservar la memoria histórica.
+                    </p>
+                    <span class="read-more" onclick="toggleReadMore(event, this)">Leer más...</span>
+                </li>
             </ul>
         </div>
 
     </section>
 
-    <section class="footer">
-        <img>
-        <div id="footer" class="footer-content container">
+    <section id="footer" class="footer">
+        <div class="footer-content container">
             <h2 id="Footer_description">Si tenés alguna propuesta o algún proyecto en mente, ¡hablame!</h2>
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/agostina-gentille-847481291" class="footer-link">
@@ -158,9 +176,9 @@
                 Email
             </a>
         </div> 
-
+        
         </div>
-
+        <img src="imagenes/arg_icono.png" alt="argentina" class="arg_icono">
     </section>
 
     
